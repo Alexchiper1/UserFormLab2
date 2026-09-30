@@ -1,5 +1,6 @@
 package com.example.userformlab2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void submit(View view) {
+
         EditText txt = findViewById(R.id.name);
         EditText phone = findViewById(R.id.phone);
         EditText pass = findViewById(R.id.pass);
@@ -71,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Toast.makeText(this, "Thank you "+ name +", your request is being processed", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MainActivity2.class);
+        intent.putExtra("name",name);
+        startActivity(intent);
+        //Toast.makeText(this, "Thank you "+ name +", your request is being processed", Toast.LENGTH_SHORT).show();
     }
 }
